@@ -20,7 +20,7 @@ public class SigninTest {
         // PASSED
         //Test case for EC1, sign up from site
         try {
-            signInFacebookTest(driver);
+            signInSiteTest(driver);
         } catch (Exception e) {
             System.out.println("Test case Failed");
         }
