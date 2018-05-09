@@ -1,7 +1,5 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class SigninTest {
@@ -41,9 +39,11 @@ public class SigninTest {
         WebElement join = driver.findElement(By.xpath("//*[@id=\"taplc_global_nav_action_profile_0\"]/div/a[2]"));
         join.click();
 
-        WebDriverWait waiting = new WebDriverWait(driver, 10);
-        waiting.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"coreReg\"]")));
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         WebElement fb_button = driver.findElement(By.xpath("//*[@id=\"facebookBtn\"]"));
         fb_button.click();
 
@@ -57,9 +57,11 @@ public class SigninTest {
         WebElement join = driver.findElement(By.xpath("//*[@id=\"taplc_global_nav_action_profile_0\"]/div/a[2]"));
         join.click();
 
-        WebDriverWait waiting = new WebDriverWait(driver, 10);
-        waiting.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"coreBody\"]")));
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         WebElement site_button = driver.findElement(By.xpath("//*[@id=\"ssoButtons\"]/span[2]"));
         site_button.click();
 
@@ -77,9 +79,11 @@ public class SigninTest {
         WebElement join = driver.findElement(By.xpath("//*[@id=\"taplc_global_nav_action_profile_0\"]/div/a[2]"));
         join.click();
 
-        WebDriverWait waiting = new WebDriverWait(driver, 10);
-        waiting.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"coreBody\"]")));
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         WebElement google_btn = driver.findElement(By.xpath("//*[@id=\"googleBtn\"]"));
         google_btn.click();
 

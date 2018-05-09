@@ -1,7 +1,5 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class EmailSignupTest {
@@ -13,8 +11,11 @@ public class EmailSignupTest {
         WebElement join = driver.findElement(By.xpath("//*[@id=\"taplc_global_nav_action_profile_0\"]/div/a[2]"));
         join.click();
 
-        WebDriverWait waiting = new WebDriverWait(driver, 10);
-        waiting.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"coreBody\"]")));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         WebElement site_button = driver.findElement(By.xpath("//*[@id=\"ssoButtons\"]/span[2]"));
         site_button.click();
@@ -40,7 +41,7 @@ public class EmailSignupTest {
         }
 
         // PASSED
-        //Test case for EC1, sign up from site with empty email
+        //Test case for EC3, sign up from site with empty email
         try {
             signInSiteTestInvalid(driver, email, pass, new_join, "");
         } catch (Exception e) {
