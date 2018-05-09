@@ -28,20 +28,22 @@ public class RoomSelectionTest {
 
         for (int i = 2; i <= 9; i++) {
             add_room.click();
-            if (i == 9 && room.getText().split(" ")[0].equals("8")) {
+            String val = room.getText().split(" ")[0];
+            if (i == 9 && val.equals("8")) {
                 break;
             }
-            if (!room.getText().split(" ")[0].equals(String.valueOf(i))) {
+            if (!val.equals(String.valueOf(i))) {
                 throw new NoSuchElementException("exception");
             }
         }
 
         for (int i = 7; i >= 0; i++) {
             remove_room.click();
+            String val = room.getText().split(" ")[0];
             if (i == 0 && room.getText().split(" ")[0].equals("1")) {
                 break;
             }
-            if (!room.getText().split(" ")[0].equals(String.valueOf(i))) {
+            if (!val.equals(String.valueOf(i))) {
                 throw new NoSuchElementException("exception");
             }
         }
