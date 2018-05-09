@@ -19,12 +19,12 @@ public class RoomSelectionTest {
     //Passing tests for valid data
     private static void testRoomSelection(WebDriver driver) throws NoSuchElementException, TimeoutException {
         driver.get("https://www.tripadvisor.com/");
-        WebElement drop = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/div[@class='page']/div[@id='taplc_homepage_hero_0']/div[@class='homeHero default_home ']/div[@class='ui_container container']/div[@class='placement_wrap']/div[@class='placement_wrap_row']/div[@class='placement_wrap_cell']/div[@id='taplc_trip_search_home_default_0']/div[@class='ui_columns datepicker_box trip_search metaDatePicker  rounded_lockup easyClear usePickerTypeIcons hasDates']/div[@class='prw_rup prw_ibex_trip_search_rooms_guests ui_column wctx-tripsearch']"));
+        WebElement drop = driver.findElement(By.xpath("//*[@id=\"taplc_trip_search_home_default_0\"]/div[2]/div[3]/div/div"));
         drop.click();
 
-        WebElement room = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/span[@class='ui_overlay ui_popover arrow_top rooms_guests_children no_x no_padding']/div[@class='body_text']/div[@class='prw_rup prw_ibex_trip_search_rooms_guests popup_content pickers']/div[@class='roomsPlaceholder']/div[@class='picker rooms-picker']/span[@class='picker-label']"));
-        WebElement add_room = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/span[@class='ui_overlay ui_popover arrow_top rooms_guests_children no_x no_padding']/div[@class='body_text']/div[@class='prw_rup prw_ibex_trip_search_rooms_guests popup_content pickers']/div[@class='roomsPlaceholder']/div[@class='picker rooms-picker']/span[@class='ui_selector']/span[@class='ui_icon plus-circle']"));
-        WebElement remove_room = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/span[@class='ui_overlay ui_popover arrow_top rooms_guests_children no_x no_padding']/div[@class='body_text']/div[@class='prw_rup prw_ibex_trip_search_rooms_guests popup_content pickers']/div[@class='roomsPlaceholder']/div[@class='picker rooms-picker']/span[@class='ui_selector']/span[@class='ui_icon minus-circle']"));
+        WebElement room = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div[1]/div/span[2]"));
+        WebElement add_room = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div[1]/div/span[1]/span[2]"));
+        WebElement remove_room = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div[1]/div/span[1]/span[1]"));
 
         for (int i = 2; i <= 9; i++) {
             add_room.click();
@@ -36,11 +36,10 @@ public class RoomSelectionTest {
                 throw new NoSuchElementException("exception");
             }
         }
-
-        for (int i = 7; i >= 0; i++) {
+        for (int i = 7; i >= 0; i--) {
             remove_room.click();
             String val = room.getText().split(" ")[0];
-            if (i == 0 && room.getText().split(" ")[0].equals("1")) {
+            if (i == 0 && val.equals("1")) {
                 break;
             }
             if (!val.equals(String.valueOf(i))) {

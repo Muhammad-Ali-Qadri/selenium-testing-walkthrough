@@ -19,12 +19,12 @@ public class ChildNumberTest {
     //Passing tests for valid data
     private static void testChildNumber(WebDriver driver) throws NoSuchElementException, TimeoutException {
         driver.get("https://www.tripadvisor.com/");
-        WebElement drop = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/div[@class='page']/div[@id='taplc_homepage_hero_0']/div[@class='homeHero default_home ']/div[@class='ui_container container']/div[@class='placement_wrap']/div[@class='placement_wrap_row']/div[@class='placement_wrap_cell']/div[@id='taplc_trip_search_home_default_0']/div[@class='ui_columns datepicker_box trip_search metaDatePicker  rounded_lockup easyClear usePickerTypeIcons hasDates']/div[@class='prw_rup prw_ibex_trip_search_rooms_guests ui_column wctx-tripsearch']"));
+        WebElement drop = driver.findElement(By.xpath("//*[@id=\"taplc_trip_search_home_default_0\"]/div[2]/div[3]/div/div"));
         drop.click();
 
-        WebElement child = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/span[@class='ui_overlay ui_popover arrow_top rooms_guests_children no_x no_padding']/div[@class='body_text']/div[@class='prw_rup prw_ibex_trip_search_rooms_guests popup_content pickers']/div[@class='childrenPlaceholder']/div[@class='picker children-picker']/span[@class='picker-label']"));
-        WebElement add_child = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/span[@class='ui_overlay ui_popover arrow_top rooms_guests_children no_x no_padding']/div[@class='body_text']/div[@class='prw_rup prw_ibex_trip_search_rooms_guests popup_content pickers']/div[@class='childrenPlaceholder']/div[@class='picker children-picker']/span[@class='ui_selector']/span[@class='ui_icon plus-circle']"));
-        WebElement remove_child = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/span[@class='ui_overlay ui_popover arrow_top rooms_guests_children no_x no_padding']/div[@class='body_text']/div[@class='prw_rup prw_ibex_trip_search_rooms_guests popup_content pickers']/div[@class='childrenPlaceholder']/div[@class='picker children-picker']/span[@class='ui_selector']/span[@class='ui_icon minus-circle']"));
+        WebElement child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div[3]/div/span[2]"));
+        WebElement add_child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div[3]/div/span[1]/span[2]"));
+        WebElement remove_child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div[3]/div/span[1]/span[1]"));
 
         for (int i = 1; i <= 21; i++) {
             add_child.click();
@@ -37,7 +37,7 @@ public class ChildNumberTest {
             }
         }
 
-        for (int i = 19; i >= -1; i++) {
+        for (int i = 19; i >= -1; i--) {
             remove_child.click();
             String val = child.getText().split(" ")[0];
             if (i == -1 && val.equals("0")) {
