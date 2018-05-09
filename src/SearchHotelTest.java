@@ -9,20 +9,33 @@ public class SearchHotelTest {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
-//        // PASSED
-//        //Test case for EC1, add name of city
-//        testHotelName(driver, "Barcelona");
-//
-//        // PASSED
-//        //Test case for EC2, add name of city
-//        testHotelNameInvalid(driver, "3.433.435");
-//
-//        // PASSED
-//        //Test case for EC3, add name of city
-//        testHotelNameInvalid(driver, "1344511");
+        // PASSED
+        //Test case for EC1, add name of city
+        try {
+            testHotelName(driver, "Barcelona");
+        } catch (Exception e) {
+            System.out.println("Test case Failed");
+        }
 
         // PASSED
-        //Test case for EC4, add name of city
+        //Test case for EC2, add invalid numbers
+        try {
+            testHotelNameInvalid(driver, "3.433.435");
+        } catch (Exception e) {
+            System.out.println("Test case Failed");
+        }
+
+        // PASSED
+        //Test case for EC3, add invalid numbers
+        try {
+            testHotelNameInvalid(driver, "1344511");
+        } catch (Exception e) {
+            System.out.println("Test case Failed");
+        }
+
+        // FAILED
+        //Test case for EC4, add invalid characters.
+        //The site still shows result of a hotel.
         try {
             testHotelNameInvalid(driver, "#$$%232#@");
         } catch (Exception e) {
@@ -31,6 +44,7 @@ public class SearchHotelTest {
 
     }
 
+    //passing tests for valid data
     private static void testHotelName(WebDriver driver, String input) throws NoSuchElementException, TimeoutException {
         driver.get("https://www.tripadvisor.com/");
         WebElement city = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/div[@class='page']/div[@id='taplc_homepage_hero_0']/div[@class='homeHero default_home ']/div[@class='ui_container container']/div[@class='placement_wrap']/div[@class='placement_wrap_row']/div[@class='placement_wrap_cell']/div[@id='taplc_trip_search_home_default_0']/div[@class='ui_columns datepicker_box trip_search metaDatePicker  rounded_lockup easyClear usePickerTypeIcons preDates noDates']/div[@class='prw_rup prw_search_typeahead ui_column is-3 responsive_inline_priority search_typeahead wctx-tripsearch']/div[@class='ui_picker']/span[@class='typeahead_align ui_typeahead']/input[@class='typeahead_input']"));
@@ -51,6 +65,7 @@ public class SearchHotelTest {
         }
     }
 
+    //passing tests for invalid data
     private static void testHotelNameInvalid(WebDriver driver, String input) throws NoSuchElementException, TimeoutException {
         driver.get("https://www.tripadvisor.com/");
         WebElement city = driver.findElement(By.xpath("/html/body[@id='BODY_BLOCK_JQUERY_REFLOW']/div[@class='page']/div[@id='taplc_homepage_hero_0']/div[@class='homeHero default_home ']/div[@class='ui_container container']/div[@class='placement_wrap']/div[@class='placement_wrap_row']/div[@class='placement_wrap_cell']/div[@id='taplc_trip_search_home_default_0']/div[@class='ui_columns datepicker_box trip_search metaDatePicker  rounded_lockup easyClear usePickerTypeIcons preDates noDates']/div[@class='prw_rup prw_search_typeahead ui_column is-3 responsive_inline_priority search_typeahead wctx-tripsearch']/div[@class='ui_picker']/span[@class='typeahead_align ui_typeahead']/input[@class='typeahead_input']"));
