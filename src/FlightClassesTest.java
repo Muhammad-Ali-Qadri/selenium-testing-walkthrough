@@ -8,7 +8,7 @@ public class FlightClassesTest {
         WebDriver driver = new ChromeDriver();
 
         // ALL PASSED
-        //Test case for EC1-5 valid flight classes
+        //Test case for EC1-4 valid flight classes
         for (int i = 1; i <= 4; i++) {
             try {
                 flightClasses(driver, i);
