@@ -2,7 +2,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class SigninTest {
+public class SignInTest {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();

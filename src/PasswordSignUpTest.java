@@ -33,7 +33,7 @@ public class PasswordSignUpTest {
         }
 
         // PASSED
-        //Test case for EC2, sign up from site with invalid email
+        //Test case for EC2, sign up from site with invalid password
         try {
             signInSiteTest(driver, email, pass, new_join, "asdasdasd", false);
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class PasswordSignUpTest {
         }
 
         // PASSED
-        //Test case for EC3, sign up from site with empty email
+        //Test case for EC3, sign up from site with empty password
         try {
             signInSiteTest(driver, email, pass, new_join, "", false);
         } catch (Exception e) {
