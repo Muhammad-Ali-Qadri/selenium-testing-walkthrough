@@ -47,6 +47,12 @@ public class DescriptionOfReviewTest {
             title.sendKeys(input);
         }
 
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         WebElement sub = driver.findElement(By.xpath("//*[@id=\"taplc_quick_review_0\"]/div/div[3]/form/div/input"));
         sub.click();
 
