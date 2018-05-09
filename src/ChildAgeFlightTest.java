@@ -24,7 +24,7 @@ public class ChildAgeFlightTest {
         WebElement drop = driver.findElement(By.xpath("//*[@id=\"cos_ui_picker\"]"));
         drop.click();
 
-        WebElement add_child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div/div[4]/div[2]/span[2]"));
+        WebElement add_child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span[2]/div[3]/div/div/div[5]/div[2]/span[2]"));
         add_child.click();
 
         WebElement drop_down = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span[2]/div[3]/div/div/div[7]/div[1]/div[2]/div"));

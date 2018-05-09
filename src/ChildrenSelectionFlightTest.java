@@ -22,9 +22,9 @@ public class ChildrenSelectionFlightTest {
         WebElement drop = driver.findElement(By.xpath("//*[@id=\"cos_ui_picker\"]"));
         drop.click();
 
-        WebElement child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div/div[4]/div[1]/span[2]"));
-        WebElement add_child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div/div[4]/div[2]/span[2]"));
-        WebElement remove_child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span/div[3]/div/div/div[4]/div[2]/span[1]"));
+        WebElement child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span[2]/div[3]/div/div/div[5]/div[1]/span[2]"));
+        WebElement add_child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span[2]/div[3]/div/div/div[5]/div[2]/span[2]"));
+        WebElement remove_child = driver.findElement(By.xpath("//*[@id=\"BODY_BLOCK_JQUERY_REFLOW\"]/span[2]/div[3]/div/div/div[5]/div[2]/span[1]"));
 
         for (int i = 1; i <= 6; i++) {
             add_child.click();
