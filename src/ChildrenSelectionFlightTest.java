@@ -8,7 +8,7 @@ public class ChildrenSelectionFlightTest {
         WebDriver driver = new ChromeDriver();
 
         // PASSED
-        //Test case for EC1, value of seniors between 0-6
+        //Test case for EC1, value of children between 0-5
         try {
             testChildrenNumber(driver);
         } catch (Exception e) {
