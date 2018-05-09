@@ -26,7 +26,7 @@ public class TitleOfReviewTest {
 
     //Passing tests for valid data
     private static void titleOfReview(WebDriver driver, String input, boolean empty) throws NoSuchElementException, TimeoutException {
-        driver.get("https://www.tripadvisor.com/CheapFlightsHome");
+        driver.get("https://www.tripadvisor.com/UserReview");
 
         WebElement drop = driver.findElement(By.xpath("//*[@id=\"taplc_quick_review_0\"]/div"));
         drop.click();

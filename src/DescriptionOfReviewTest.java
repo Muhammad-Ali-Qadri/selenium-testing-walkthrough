@@ -2,38 +2,49 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class RatingOfServiceTest {
+public class DescriptionOfReviewTest {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
+        StringBuilder in = new StringBuilder();
+        for (int i = 0; i < 200; i++) in.append("a");
+
         // PASSED
-        //Test case for EC1, add rating
+        //Test case for EC1, add review
         try {
-            ratingOfService(driver, false);
+            descriptionOfReview(driver, in.toString(), false);
         } catch (Exception e) {
             System.out.println("Test case Failed");
         }
 
         // PASSED
-        //Test case for EC2, leave rarting empty
+        //Test case for EC2, leave review < 200
         try {
-            ratingOfService(driver, true);
+            descriptionOfReview(driver, "asdasdasd", true);
+        } catch (Exception e) {
+            System.out.println("Test case Failed");
+        }
+
+        // PASSED
+        //Test case for EC2, leave review empty
+        try {
+            descriptionOfReview(driver, "", true);
         } catch (Exception e) {
             System.out.println("Test case Failed");
         }
     }
 
     //Passing tests for valid data
-    private static void ratingOfService(WebDriver driver, boolean empty) throws NoSuchElementException, TimeoutException {
+    private static void descriptionOfReview(WebDriver driver, String input, boolean empty) throws NoSuchElementException, TimeoutException {
         driver.get("https://www.tripadvisor.com/UserReview");
 
         WebElement drop = driver.findElement(By.xpath("//*[@id=\"taplc_quick_review_0\"]/div"));
         drop.click();
 
         if (!empty) {
-            WebElement rating = driver.findElement(By.xpath("//*[@id=\"taplc_quick_review_0\"]/div/div[2]/div[3]/span[1]"));
-            rating.click();
+            WebElement title = driver.findElement(By.xpath("//*[@id=\"taplc_quick_review_0\"]/div/div[3]/form/label[2]/textarea"));
+            title.sendKeys(input);
         }
 
         WebElement sub = driver.findElement(By.xpath("//*[@id=\"taplc_quick_review_0\"]/div/div[3]/form/div/input"));
