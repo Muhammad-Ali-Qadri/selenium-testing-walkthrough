@@ -2,7 +2,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class EmailSignupTest {
+public class PasswordSignUpTest {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -27,7 +27,7 @@ public class EmailSignupTest {
         // PASSED
         //Test case for EC1, sign up from site with valid credentials
         try {
-            signInSiteTest(driver, email, pass, new_join, "abc@gmail.com", true);
+            signInSiteTest(driver, email, pass, new_join, "12345678", true);
         } catch (Exception e) {
             System.out.println("Test case Failed");
         }
@@ -35,7 +35,7 @@ public class EmailSignupTest {
         // PASSED
         //Test case for EC2, sign up from site with invalid email
         try {
-            signInSiteTest(driver, email, pass, new_join, "abc@gmail.com", false);
+            signInSiteTest(driver, email, pass, new_join, "asdasdasd", false);
         } catch (Exception e) {
             System.out.println("Test case Failed");
         }
@@ -52,8 +52,8 @@ public class EmailSignupTest {
     //Passing tests for valid data
     private static void signInSiteTest(WebDriver driver, WebElement email, WebElement pass, WebElement join, String input, boolean prove_valid) throws NoSuchElementException, TimeoutException {
 
-        email.sendKeys(input);
-        pass.sendKeys("12345678");
+        email.sendKeys("abc@gmail.com");
+        pass.sendKeys(input);
         join.click();
 
         try {
